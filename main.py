@@ -1,16 +1,15 @@
 import pygame
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from logger import log_state
-from ship import Ship_Player
-
+from player import Player
 
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     dt = 0
-    player = ship.Ship_Player(SCREEN_WIDTH/2, SCREEN_HEIGHT/2)
 
     while True:
         log_state()
@@ -22,12 +21,12 @@ def main():
         screen.fill("black")
         player.draw(screen)
         pygame.display.flip()
-        
-        time = clock.tick(60)
-        dt = time/1000
-        
+
+        # limit the framerate to 60 FPS
+        dt = clock.tick(120) / 1000
+        fps = 1 /dt
+        print(fps)
 
 
 if __name__ == "__main__":
     main()
-
