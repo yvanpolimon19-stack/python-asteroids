@@ -25,7 +25,10 @@ def main():
 
         updatable.update(dt)
         screen.fill("black")
-        drawable.draw(screen)
+
+        for i in drawable:
+            i.draw(screen)
+        
         pygame.display.flip()
 
         # limit the framerate to 60 FPS
