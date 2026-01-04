@@ -8,3 +8,5 @@ class Asteroid(CircleShape):
         self.velocity = pygame.Vector2(0, 0)
         self.radius = radius
           
+          #needed a commit for the day
+          
